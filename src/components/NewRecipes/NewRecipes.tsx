@@ -2,6 +2,7 @@ import './NewRecipes.scss';
 import { useQuery } from '@tanstack/react-query';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { getRandomRecipes } from '../../services/recipeApi';
+import titleImage from '../../assets/n.png';
 
 function NewRecipes() {
   const { data: recipes, isLoading, error } = useQuery({
@@ -9,13 +10,13 @@ function NewRecipes() {
     queryFn: () => getRandomRecipes(4),
   });
 
-  // Ahora mostramos todas las recetas en móvil y tablet gracias al carrusel
+  
   const recipesToShow = recipes;
 
   if (isLoading) {
     return (
       <section className="new-recipes">
-        <h2 className="new-recipes__title">Nuevas Recetas</h2>
+        <img src={titleImage} alt="Nuevas Recetas" className="new-recipes__title" />
         <p>Cargando recetas...</p>
       </section>
     );
@@ -28,7 +29,7 @@ function NewRecipes() {
   if (!recipes || recipes.length === 0) {
     return (
       <section className="new-recipes">
-        <h2 className="new-recipes__title">Nuevas Recetas</h2>
+        <img src={titleImage} alt="Nuevas Recetas" className="new-recipes__title" />
         <p>No hay recetas disponibles</p>
       </section>
     );
@@ -36,7 +37,7 @@ function NewRecipes() {
 
   return (
     <section className="new-recipes">
-      <h2 className="new-recipes__title">Nuevas Recetas</h2>
+      <img src={titleImage} alt="Nuevas Recetas" className="new-recipes__title" />
       <div className="new-recipes__grid">
         {recipesToShow?.map((recipe) => (
           <RecipeCard

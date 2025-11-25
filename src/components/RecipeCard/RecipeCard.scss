@@ -14,21 +14,30 @@
   position: relative;
   z-index: 1;
   height: 360px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 
+  // Móvil: 2 cards visibles
   @media (max-width: 767px) {
     background-color: $color-background;
-    width: 200px;
+    width: calc(50% - #{$spacing-md});
+    min-width: 160px;
     height: 195px;
     gap: $spacing-xs;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: $spacing-md $spacing-xs $spacing-sm;
-    flex-shrink: 0;
-    scroll-snap-align: start;
   }
 
+  // Tablet: 3 cards visibles
   @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
-    flex-shrink: 0;
-    scroll-snap-align: start;
+    width: calc(33.333% - #{$spacing-lg});
+    min-width: 220px;
+  }
+
+  // Desktop: 4 cards visibles
+  @media (min-width: $breakpoint-desktop) {
+    width: calc(25% - #{$spacing-xl});
+    min-width: 250px;
   }
 
   &::before {
@@ -45,27 +54,29 @@
     z-index: -1;
   }
 
-  &:hover {
-    z-index: 10;
+  @media (min-width: 768px) {
+    &:hover {
+      z-index: 10;
 
-    &::before {
-      bottom: -220px;
-      box-shadow: 8px 10px 25px rgba(0, 0, 0, 0.25);
-    }
+      &::before {
+        bottom: -220px;
+        box-shadow: 8px 10px 25px rgba(0, 0, 0, 0.25);
+      }
 
-    .recipe-card__image {
-      transform: translateY(-10px);
-    }
+      .recipe-card__image {
+        transform: translateY(-10px);
+      }
 
-    .recipe-card__title,
-    .recipe-card__footer {
-      opacity: 0;
-      visibility: hidden;
-    }
+      .recipe-card__title,
+      .recipe-card__footer {
+        opacity: 0;
+        visibility: hidden;
+      }
 
-    .recipe-card__extra-info {
-      opacity: 1;
-      visibility: visible;
+      .recipe-card__extra-info {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 

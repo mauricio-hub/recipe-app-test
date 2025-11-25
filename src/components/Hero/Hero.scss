@@ -23,41 +23,52 @@
   &__content {
     position: absolute;
     top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
-  }
-
-  &__title {
-    font-family: $font-primary;
-    font-size: 2rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: white;
+    text-align: center;
 
     @media (min-width: $breakpoint-tablet) {
-      font-size: 3rem;
+      left: 35%;
+      text-align: left;
     }
 
     @media (min-width: $breakpoint-desktop) {
-      font-size: 74px;
-      line-height: 111px;
+      left: 30%;
+    }
+  }
+
+  &__title {
+    font-family: $font-cursive;
+    font-size: 2.5rem;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.2;
+    color: white;
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 3.5rem;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      font-size: 5rem;
     }
   }
 
   &__subtitle {
-    font-family: $font-primary;
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-family: $font-cursive;
+    font-size: 1.5rem;
+    font-weight: normal;
     font-style: italic;
     color: white;
+    margin-top: -0.5rem;
 
     @media (min-width: $breakpoint-tablet) {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
     @media (min-width: $breakpoint-desktop) {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
     }
   }
 }
