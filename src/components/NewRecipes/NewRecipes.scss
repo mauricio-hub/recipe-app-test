@@ -19,16 +19,17 @@
     display: block;
     height: auto;
     max-width: 400px;
+    margin-top: $spacing-xl;
     margin-bottom: $spacing-md;
 
     @media (max-width: 767px) {
       max-width: 250px;
-      margin: 0 auto $spacing-lg;
+      margin: $spacing-lg auto $spacing-lg;
     }
 
     @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
       max-width: 300px;
-      margin: 0 auto $spacing-md;
+      margin: $spacing-xl auto $spacing-md;
     }
   }
 

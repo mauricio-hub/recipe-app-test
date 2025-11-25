@@ -23,18 +23,17 @@
   &__content {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 15%;
+    transform: translateY(-50%);
     color: white;
-    text-align: center;
+    text-align: left;
 
     @media (min-width: $breakpoint-tablet) {
-      left: 35%;
-      text-align: left;
+      left: 10%;
     }
 
     @media (min-width: $breakpoint-desktop) {
-      left: 30%;
+      left: 20%;
     }
   }
 
