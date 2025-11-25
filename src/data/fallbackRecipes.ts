@@ -25,7 +25,7 @@ export const fallbackRecipes: Recipe[] = [
   },
   {
     id: 3,
-    title: 'Pollo con Cola',
+    title: 'Pollo Asado',
     image: colaChicken,
     rating: 4.7,
   },
