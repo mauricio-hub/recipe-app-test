@@ -30,11 +30,15 @@ function NewRecipes() {
     );
   }
 
-  if (error || !recipes) {
+  if (error) {
+    console.error('Query error in NewRecipes:', error);
+  }
+
+  if (!recipes || recipes.length === 0) {
     return (
       <section className="new-recipes">
         <h2 className="new-recipes__title">Nuevas Recetas</h2>
-        <p>Error al cargar recetas</p>
+        <p>No hay recetas disponibles</p>
       </section>
     );
   }

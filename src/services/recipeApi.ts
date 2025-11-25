@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fallbackRecipes } from '../data/fallbackRecipes';
 
 const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY || 'demo';
 const BASE_URL = 'https://api.spoonacular.com/recipes';
@@ -29,9 +30,9 @@ export const getRandomRecipes = async (number: number = 4): Promise<Recipe[]> =>
       rating: recipe.spoonacularScore ? (recipe.spoonacularScore / 20).toFixed(1) : 4.5,
     }));
   } catch (error) {
-    console.error('Error fetching recipes:', error);
+    console.error('Error fetching recipes from API, using fallback data:', error);
     // Fallback a datos locales si falla la API
-    return [];
+    return fallbackRecipes.slice(0, number);
   }
 };
 
@@ -45,7 +46,8 @@ export const getRecipesByCategory = async (category: string): Promise<Recipe[]> 
     });
     return response.data.results;
   } catch (error) {
-    console.error('Error fetching recipes by category:', error);
-    return [];
+    console.error('Error fetching recipes by category from API, using fallback data:', error);
+    // Fallback a datos locales si falla la API
+    return fallbackRecipes;
   }
 };
