@@ -1,16 +1,6 @@
 import axios from 'axios';
 import { fallbackRecipes } from '../data/fallbackRecipes';
 
-const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY || 'demo';
-const BASE_URL = 'https://api.spoonacular.com/recipes';
-
-const api = axios.create({
-  baseURL: BASE_URL,
-  params: {
-    apiKey: API_KEY,
-  },
-});
-
 export interface Recipe {
   id: number;
   title: string;
@@ -20,7 +10,7 @@ export interface Recipe {
 
 export const getRandomRecipes = async (number: number = 4): Promise<Recipe[]> => {
   try {
-    const response = await api.get('/random', {
+    const response = await axios.get('/api/random', {
       params: { number },
     });
     return response.data.recipes.map((recipe: any) => ({
@@ -31,14 +21,13 @@ export const getRandomRecipes = async (number: number = 4): Promise<Recipe[]> =>
     }));
   } catch (error) {
     console.error('Error fetching recipes from API, using fallback data:', error);
-    // Fallback a datos locales si falla la API
     return fallbackRecipes.slice(0, number);
   }
 };
 
 export const getRecipesByCategory = async (category: string): Promise<Recipe[]> => {
   try {
-    const response = await api.get('/complexSearch', {
+    const response = await axios.get('/api/search', {
       params: {
         query: category,
         number: 4,
@@ -47,7 +36,6 @@ export const getRecipesByCategory = async (category: string): Promise<Recipe[]> 
     return response.data.results;
   } catch (error) {
     console.error('Error fetching recipes by category from API, using fallback data:', error);
-    // Fallback a datos locales si falla la API
     return fallbackRecipes;
   }
 };
