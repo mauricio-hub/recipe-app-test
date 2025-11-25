@@ -9,17 +9,8 @@ function NewRecipes() {
     queryFn: () => getRandomRecipes(4),
   });
 
-  const width = window.innerWidth;
-  const isMobile = width < 768;
-  const isTablet = width >= 768 && width < 1024;
-
-  const recipesToShow = recipes
-    ? isMobile
-      ? recipes.slice(0, 2)
-      : isTablet
-        ? recipes.slice(0, 3)
-        : recipes
-    : recipes;
+  // Ahora mostramos todas las recetas en móvil y tablet gracias al carrusel
+  const recipesToShow = recipes;
 
   if (isLoading) {
     return (

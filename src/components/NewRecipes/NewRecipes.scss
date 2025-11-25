@@ -4,10 +4,11 @@
   padding: $spacing-lg $spacing-lg 15rem;
 
   @media (max-width: 767px) {
-    padding: 0 $spacing-md 0;
-    max-width: 375px;
+    padding: 0;
+    max-width: 100%;
     margin: -40px auto 0;
     margin-bottom: 20px;
+    overflow: hidden;
   }
 
   &__title {
@@ -26,6 +27,7 @@
       line-height: 1.2;
       font-style: italic;
       margin-bottom: $spacing-lg;
+      padding: 0 $spacing-md;
     }
   }
 
@@ -38,15 +40,39 @@
     margin-bottom: $spacing-xl;
 
     @media (max-width: 767px) {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
       gap: $spacing-md;
-      grid-auto-rows: 200px;
-      justify-content: center;
-      padding: 0;
+      padding: 50px $spacing-lg 0;
       margin-bottom: 0;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
-    @media (min-width: $breakpoint-tablet) {
-      grid-template-columns: repeat(3, 1fr);
+    @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: $spacing-lg;
+      padding: $spacing-md 0;
+      margin-bottom: $spacing-xl;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     @media (min-width: $breakpoint-desktop) {

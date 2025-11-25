@@ -17,11 +17,18 @@
 
   @media (max-width: 767px) {
     background-color: $color-background;
-    width: 165px;
-    height: 200px;
+    width: 200px;
+    height: 195px;
     gap: $spacing-xs;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: $spacing-md $spacing-xs $spacing-sm;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
+    flex-shrink: 0;
+    scroll-snap-align: start;
   }
 
   &::before {
