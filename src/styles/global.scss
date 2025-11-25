@@ -1,0 +1,46 @@
+@use 'variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-text;
+  background-color: $color-background;
+  line-height: 1.6;
+}
+
+html, body {
+  height: auto;
+  min-height: 0;
+}
+
+#root {
+  height: auto;
+
+  @media (max-width: 767px) {
+    overflow: hidden;
+  }
+
+  > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

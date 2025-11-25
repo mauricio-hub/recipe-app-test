@@ -1,0 +1,68 @@
+@use '../../styles/variables' as *;
+
+.sponsors {
+  position: relative;
+  background: linear-gradient(180deg, #c2e3f3 0%, #6aa3c1 100%);
+  padding: $spacing-sm;
+  box-shadow: 4px 6px 23px #a9a9a911;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  top: 0;
+  margin-bottom: 0;
+
+  @media (min-width: $breakpoint-tablet) {
+    height: 116px;
+    padding: $spacing-md;
+    top: 50px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    height: 167px;
+    top: 0;
+    padding: $spacing-lg;
+  }
+
+  &__title {
+    font-family: $font-logo;
+    font-size: 1rem;
+    font-weight: normal;
+    color: $color-text;
+    text-align: left;
+    flex: 1;
+    padding-left: 3rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 1.5rem;
+      padding-left: 4rem;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      font-size: 56px;
+      line-height: 67px;
+      padding-left: 5rem;
+    }
+  }
+
+  &__products {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      max-height: 100px;
+
+      @media (min-width: $breakpoint-tablet) {
+        max-height: 150px;
+      }
+
+      @media (min-width: $breakpoint-desktop) {
+        max-height: 270px;
+        margin-right: $spacing-lg;
+      }
+    }
+  }
+}

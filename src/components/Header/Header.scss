@@ -1,0 +1,55 @@
+@use '../../styles/variables' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm $spacing-lg;
+  background-color: $color-background;
+
+  &__logo {
+    height: 40px;
+    width: auto;
+  }
+
+  &__nav {
+    display: none;
+
+    @media (min-width: $breakpoint-desktop) {
+      display: block;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: $spacing-md;
+
+    &-item {
+      cursor: pointer;
+      color: $color-text-light;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+
+      &:hover,
+      &--active {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__mobile-btn {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      display: none;
+    }
+  }
+}
