@@ -4,9 +4,10 @@
   padding: $spacing-lg $spacing-lg 15rem;
 
   @media (max-width: 767px) {
-    padding: $spacing-lg $spacing-md 0;
+    padding: 0 $spacing-md 0;
     max-width: 375px;
-    margin: 0 auto;
+    margin: -40px auto 0;
+    margin-bottom: 20px;
   }
 
   &__title {

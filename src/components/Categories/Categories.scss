@@ -2,11 +2,13 @@
 
 .categories {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: $spacing-md;
-  padding: $spacing-lg $spacing-md;
+  padding: 0 $spacing-md $spacing-lg;
   max-width: 375px;
-  margin: 0 auto;
+  margin: -52px auto 0;
+  position: relative;
+  z-index: 10;
 
   @media (min-width: $breakpoint-tablet) {
     display: flex;
@@ -30,13 +32,16 @@
     align-items: center;
     justify-content: center;
     gap: $spacing-xs;
-    padding: $spacing-md $spacing-sm;
+    padding: $spacing-md $spacing-xs;
     background-color: $color-background;
     border-radius: $border-radius-lg;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     min-height: 100px;
+
+    @media (max-width: 767px) {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
     @media (min-width: $breakpoint-tablet) {
       flex-direction: row;
@@ -50,7 +55,10 @@
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+
+      @media (max-width: 767px) {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
 
       @media (min-width: $breakpoint-tablet) {
         box-shadow: none;
